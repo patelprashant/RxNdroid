@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">RxNdroid</string>
+    <string name="app_name">RxNdroid - Practice</string>
+    <string name="app_titile">Sample List</string>
+    <string name="error_message">Oops..! An Error Occured.</string>
+    <string name="increment">Increment</string>
+    <string name="no_result">No Result Found</string>
+    <string name="search_hint">Type Search terms here...</string>
 </resources>

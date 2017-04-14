@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.practice.android.rxndroid.MainActivity">
+    tools:context="com.practice.android.rxndroid.Sample1Activity">
 
-    <android.support.v7.widget.RecyclerView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/sample_list">
-    </android.support.v7.widget.RecyclerView>
+        android:textSize="20sp"
+        android:text="This is Sample 1 Activity"/>
 
 </android.support.constraint.ConstraintLayout>
