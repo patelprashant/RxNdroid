@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,18 +14,17 @@ import java.util.List;
 public class myStringAdapter extends RecyclerView.Adapter<myStringAdapter.ViewHolder> {
 
     private final Context mContext;
-    private final List<String> mStrings;
+    private final List<String> mStrings = new ArrayList<>();
 
-    public myStringAdapter(Context mContext, List<String> mStrings) {
-        this.mContext = mContext;
-        this.mStrings = mStrings;
+    public myStringAdapter(Context context) {
+        mContext = context;
     }
 
 
     public void setStrings(List<String> newStrings){
         mStrings.clear();
         mStrings.addAll(newStrings);
-//        notifyDataSetChanged();
+        notifyDataSetChanged();
     }
 
     @Override
@@ -36,8 +36,15 @@ public class myStringAdapter extends RecyclerView.Adapter<myStringAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.mColorDisplay.setText(mStrings.get(position));
+        holder.itemView.setOnClickListener( new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, mStrings.get(position), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

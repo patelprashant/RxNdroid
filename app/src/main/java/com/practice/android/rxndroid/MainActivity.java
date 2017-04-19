@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private static List<SampleActivityWithName> getSampleList() {
         List<SampleActivityWithName> sampleActivityWithNames = new ArrayList<>();
 
-        sampleActivityWithNames.add(new SampleActivityWithName(Sample1Activity.class, "Sample: 1 Simple List"));
+        sampleActivityWithNames.add(new SampleActivityWithName(Sample1Activity.class, "Sample: 1 Recycler View List"));
+        sampleActivityWithNames.add(new SampleActivityWithName(Sample2Activity.class, "Sample: 2 Sample Data List"));
 
         return sampleActivityWithNames;
     }
