@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.practice.android.rxndroid.Sample2Activity">
     <TextView
+        android:id="@+id/out"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Ready to code"/>
+        android:layout_height="match_parent"/>
 
 </android.support.constraint.ConstraintLayout>
