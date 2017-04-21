@@ -1,4 +1,4 @@
-package com.practice.android.rxndroid;
+package com.practice.android.rxndroid.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.practice.android.rxndroid.R;
 import com.practice.android.rxndroid.model.DataItem;
 
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class DataItemAdapter extends ArrayAdapter<DataItem> {
     LayoutInflater mInflater;
 
     public DataItemAdapter(@NonNull Context context, @NonNull List<DataItem> objects) {
-        super(context, R.layout.menu_list_item, objects);
+        super(context, R.layout.menu_list_item2, objects);
         mDataItems = objects;
         mInflater = LayoutInflater.from(context);
     }
@@ -32,7 +33,7 @@ public class DataItemAdapter extends ArrayAdapter<DataItem> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.menu_list_item, parent, false);
+            convertView = mInflater.inflate(R.layout.menu_list_item2, parent, false);
         }
         TextView tvName = (TextView) convertView.findViewById(R.id.itemNameText);
         ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);

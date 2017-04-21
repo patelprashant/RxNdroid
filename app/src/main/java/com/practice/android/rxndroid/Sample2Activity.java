@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
+import com.practice.android.rxndroid.adapter.DataItemAdapter;
 import com.practice.android.rxndroid.model.DataItem;
 import com.practice.android.rxndroid.sample.SampleDataProvider;
 

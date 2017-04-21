@@ -1,4 +1,4 @@
-package com.practice.android.rxndroid;
+package com.practice.android.rxndroid.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.practice.android.rxndroid.R;
+import com.practice.android.rxndroid.SampleActivityWithName;
 
 import java.util.List;
 
@@ -23,7 +26,7 @@ public class SampleAdapter extends RecyclerView.Adapter<SampleAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater
                 .from(context)
-                .inflate(R.layout.sample_list_item, parent, false);
+                .inflate(R.layout.sample_list_item1, parent, false);
 
         return new ViewHolder(view);
     }

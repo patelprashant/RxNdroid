@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.practice.android.rxndroid.adapter.SampleAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         sampleActivityWithNames.add(new SampleActivityWithName(Sample3Activity.class, "Sample: 3 Menu  List - Recyclerview"));
 
         return sampleActivityWithNames;
+
     }
 
     private void setupActionBar() {
