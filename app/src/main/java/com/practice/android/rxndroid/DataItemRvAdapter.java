@@ -1,6 +1,7 @@
 package com.practice.android.rxndroid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import java.io.InputStream;
 import java.util.List;
 
 public class DataItemRvAdapter extends RecyclerView.Adapter<DataItemRvAdapter.ViewHolder> {
+    public static final String ITEM_ID_KEY = "item_id_key";
     private final Context mContext;
     private final List<DataItem> mItems;
 
@@ -49,8 +51,12 @@ public class DataItemRvAdapter extends RecyclerView.Adapter<DataItemRvAdapter.Vi
         holder.itemView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText( mContext, item.getItemName() + " selected", Toast.LENGTH_SHORT )
-                        .show();
+//                Toast.makeText( mContext, item.getItemName() + " selected", Toast.LENGTH_SHORT )
+//                        .show();
+                String itemId = item.getItemId();
+                Intent intent = new Intent( mContext, Sample3DetailActivity.class );
+                intent.putExtra( ITEM_ID_KEY, itemId );
+                mContext.startActivity( intent );
             }
         } );
 
@@ -74,6 +80,7 @@ public class DataItemRvAdapter extends RecyclerView.Adapter<DataItemRvAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView menuItemName;
         public final ImageView menuImageName;
+
         public ViewHolder(View itemView) {
             super( itemView );
             menuItemName = (TextView) itemView.findViewById( R.id.menuItemNameText );

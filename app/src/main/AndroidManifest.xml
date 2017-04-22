@@ -18,7 +18,10 @@
         </activity>
         <activity android:name=".Sample1Activity" />
         <activity android:name=".Sample2Activity" />
-        <activity android:name=".Sample3Activity"></activity>
+        <activity android:name=".Sample3Activity" />
+        <activity
+            android:name=".Sample3DetailActivity"
+            android:parentActivityName=".Sample3Activity" />
     </application>
 
 </manifest>
