@@ -1,6 +1,7 @@
 package com.practice.android.rxndroid;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
@@ -21,6 +22,7 @@ public class Sample2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample2);
+        setupActionBar();
 
         Collections.sort(dataItemList, new Comparator<DataItem>() {
             @Override
@@ -41,5 +43,12 @@ public class Sample2Activity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(adapter);
+    }
+
+    private void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setTitle(R.string.sample2_title);
+        }
     }
 }

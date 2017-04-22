@@ -2,6 +2,7 @@ package com.practice.android.rxndroid;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class Sample3DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_sample3_detail );
+        setupActionBar();
 
 //        String itemId = getIntent().getExtras().getString( DataItemRvAdapter.ITEM_ID_KEY );
 //        DataItem item = SampleDataProvider.dataItemMap.get( itemId );
@@ -61,7 +63,12 @@ public class Sample3DetailActivity extends AppCompatActivity {
                 }
             }
         }
+    }
 
-
+    private void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setTitle(R.string.menu_detail_title);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.practice.android.rxndroid;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +23,7 @@ public class Sample1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample1);
 
+        setupActionBar();
         configureLayout();
         createObservable();
     }
@@ -66,5 +68,12 @@ public class Sample1Activity extends AppCompatActivity {
         colors.add("White");
 
         return colors;
+    }
+
+    private void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setTitle(R.string.sample1_title);
+        }
     }
 }
