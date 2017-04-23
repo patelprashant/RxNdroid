@@ -3,6 +3,7 @@ package com.practice.android.rxndroid;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -38,6 +39,8 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+
+    public static final String EMAIL_KEY = "email_key";
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -82,6 +85,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         } );
+
+        SharedPreferences prefs = getSharedPreferences( MainActivity.MY_GLOBAL_PREFS, MODE_PRIVATE );
+        String email = prefs.getString( EMAIL_KEY, "" );
+
+        if(!TextUtils.isEmpty( email )) {
+            mEmailView.setText( email );
+        }
 
         Button mEmailSignInButton = (Button) findViewById( R.id.email_sign_in_button );
         mEmailSignInButton.setOnClickListener( new OnClickListener() {
@@ -329,6 +339,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split( ":" );
                 if (pieces[0].equals( mEmail )) {
+                    getIntent().putExtra( EMAIL_KEY, mEmail );
+                    setResult( RESULT_OK, getIntent() );
                     // Account exists, return true if the password matches.
                     return pieces[1].equals( mPassword );
                 }
