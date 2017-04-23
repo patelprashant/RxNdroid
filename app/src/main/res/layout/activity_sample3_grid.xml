@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+
+    <ImageView
+        android:id="@+id/menuImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        tools:ignore="HardcodedText"/>
+
+    <TextView
+        android:id="@+id/menuItemNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/menuImageView"
+        android:gravity="center_horizontal"
+        android:text="A menu item"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText"/>
+
+</RelativeLayout>

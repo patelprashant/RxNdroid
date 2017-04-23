@@ -1,8 +1,11 @@
 package com.practice.android.rxndroid;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -35,9 +38,23 @@ public class Sample3Activity extends AppCompatActivity {
             }
         });
 
+
+
         menuListView = (RecyclerView) findViewById(R.id.menu_list_rv);
         dataItemRvAdapter = new DataItemRvAdapter(this, dataItemList);
-        menuListView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Read the preferences and set the layout manager
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences( this );
+        boolean isGridView = settings.getBoolean( getString( R.string.pref_display_grid ), false );
+
+        if (isGridView){
+            menuListView.setLayoutManager( new GridLayoutManager( this, 3 ) );
+        }
+        else{
+            menuListView.setLayoutManager(new LinearLayoutManager(this));
+
+        }
+
         menuListView.setAdapter(dataItemRvAdapter);
     }
 

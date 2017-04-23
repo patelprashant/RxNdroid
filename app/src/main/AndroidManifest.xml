@@ -23,19 +23,42 @@
         </activity>
         <activity
             android:name=".Sample1Activity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.practice.android.rxndroid.MainActivity"/>
+        </activity>
         <activity
             android:name=".Sample2Activity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.practice.android.rxndroid.MainActivity"/>
+        </activity>
         <activity
             android:name=".Sample3Activity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.practice.android.rxndroid.MainActivity"/>
+        </activity>
         <activity
             android:name=".Sample3DetailActivity"
-            android:parentActivityName=".Sample3Activity"/>
+            android:parentActivityName=".Sample3Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.practice.android.rxndroid.Sample3Activity"/>
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.practice.android.rxndroid.MainActivity"/>
+        </activity>
+        <activity android:name=".PrefsActivity"
+            android:label="@string/title_settings"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

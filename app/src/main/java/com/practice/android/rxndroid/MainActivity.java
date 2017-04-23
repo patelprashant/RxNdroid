@@ -67,8 +67,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_signin:
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivityForResult(intent, SIGNIN_REQUEST);
+                Intent loginIntent = new Intent(this, LoginActivity.class);
+                startActivityForResult(loginIntent, SIGNIN_REQUEST);
+                return true;
+            case R.id.actions_settings:
+                Intent settingsIntent = new Intent( this, PrefsActivity.class );
+                startActivity( settingsIntent );
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

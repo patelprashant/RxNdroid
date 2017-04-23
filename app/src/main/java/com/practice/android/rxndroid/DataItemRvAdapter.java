@@ -2,8 +2,11 @@ package com.practice.android.rxndroid;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +25,7 @@ public class DataItemRvAdapter extends RecyclerView.Adapter<DataItemRvAdapter.Vi
     public static final String ITEM_KEY = "item_key";
     private final Context mContext;
     private final List<DataItem> mItems;
+    private SharedPreferences.OnSharedPreferenceChangeListener prefListener;
 
     public DataItemRvAdapter(Context mContext, List<DataItem> mItems) {
         this.mContext = mContext;
@@ -30,9 +34,18 @@ public class DataItemRvAdapter extends RecyclerView.Adapter<DataItemRvAdapter.Vi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        // Read the preferences and set the layout manager
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences( mContext );
+
+        boolean isGridView = settings.getBoolean( mContext.getString( R.string.pref_display_grid ), false );
+        int layoutId = isGridView ? R.layout.activity_sample3_grid : R.layout.menu_list_item3;
+
+        Log.i( "Layout - id" , String.valueOf( layoutId ) );
+
         View view = LayoutInflater
                 .from( mContext )
-                .inflate( R.layout.menu_list_item3, parent, false );
+                .inflate( layoutId, parent, false );
         return new ViewHolder( view );
     }
 
