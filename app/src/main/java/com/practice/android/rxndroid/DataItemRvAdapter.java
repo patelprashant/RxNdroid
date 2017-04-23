@@ -38,8 +38,17 @@ public class DataItemRvAdapter extends RecyclerView.Adapter<DataItemRvAdapter.Vi
         // Read the preferences and set the layout manager
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences( mContext );
 
+        prefListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                Log.i( "Preferences", "onSharedPreferenceChanged: " + key );
+            }
+        };
+
+        settings.registerOnSharedPreferenceChangeListener( prefListener );
+
         boolean isGridView = settings.getBoolean( mContext.getString( R.string.pref_display_grid ), false );
-        int layoutId = isGridView ? R.layout.activity_sample3_grid : R.layout.menu_list_item3;
+        int layoutId = isGridView ? R.layout.menu_list_item3_grid : R.layout.menu_list_item3;
 
         Log.i( "Layout - id" , String.valueOf( layoutId ) );
 
