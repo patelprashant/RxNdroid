@@ -74,6 +74,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.practice.android.rxndroid.MainActivity"/>
         </activity>
+        <activity android:name=".Sample5Activity">
+        </activity>
     </application>
 
 </manifest>

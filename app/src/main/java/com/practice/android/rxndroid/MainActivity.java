@@ -12,9 +12,12 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.practice.android.rxndroid.adapter.SampleAdapter;
+import com.practice.android.rxndroid.utils.JSONHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.practice.android.rxndroid.sample.SampleDataProvider.dataItemList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.actions_settings:
                 Intent settingsIntent = new Intent( this, PrefsActivity.class );
                 startActivity( settingsIntent );
+                return true;
+            case R.id.action_export:
+                boolean result = JSONHelper.exportToJSON( this, dataItemList );
+                return true;
+            case R.id.action_import:
+//                boolean result = JSONHelper.exportToJSON( this, dataItemList );
                 return true;
         }
         return super.onOptionsItemSelected(item);

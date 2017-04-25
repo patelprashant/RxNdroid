@@ -4,7 +4,8 @@
     <string name="sample1_title">Color List - Recyclerview</string>
     <string name="sample2_title">Menu List - Listview</string>
     <string name="sample3_title">Menu List - Recyclerview</string>
-    <string name="sample4_title">Local Storage - Recyclerview</string>
+    <string name="sample4_title">Local Storage - Internal/External</string>
+    <string name="sample5_title">JSON Data - Export/Import</string>
     <string name="menu_detail_title">Menu Item Detail</string>
     <string name="error_message">Oops..! An Error Occured.</string>
     <string name="increment">Increment</string>
@@ -32,4 +33,6 @@
     <string name="read">Read</string>
     <string name="delete">Delete</string>
     <string name="ready_to_code">Ready to code!</string>
+    <string name="action_export">Export</string>
+    <string name="action_import">Import</string>
 </resources>

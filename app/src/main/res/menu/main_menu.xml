@@ -11,5 +11,13 @@
         app:showAsAction="ifRoom"
         android:title="Settings"
         tools:ignore="HardcodedText"/>
+    <item
+        android:id="@+id/action_export"
+        android:title="@string/action_export"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_import"
+        android:title="@string/action_import"
+        app:showAsAction="ifRoom" />
 
 </menu>
