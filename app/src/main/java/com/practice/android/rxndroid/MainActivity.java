@@ -7,11 +7,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.practice.android.rxndroid.adapter.SampleAdapter;
+import com.practice.android.rxndroid.model.DataItem;
 import com.practice.android.rxndroid.utils.JSONHelper;
 
 import java.util.ArrayList;
@@ -23,30 +25,32 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int SIGNIN_REQUEST = 1001;
     public static final String MY_GLOBAL_PREFS = "my_global_prefs";
+    private static final int REQUEST_PERMISSION_WRITE = 1002;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_main );
 
         setupActionBar();
         setupSampleList();
     }
 
     private void setupSampleList() {
-        RecyclerView sampleList = (RecyclerView) findViewById(R.id.sample_list);
-        sampleList.setHasFixedSize(true);
-        sampleList.setLayoutManager(new LinearLayoutManager(this));
-        sampleList.setAdapter(new SampleAdapter(this, getSampleList()));
+        RecyclerView sampleList = (RecyclerView) findViewById( R.id.sample_list );
+        sampleList.setHasFixedSize( true );
+        sampleList.setLayoutManager( new LinearLayoutManager( this ) );
+        sampleList.setAdapter( new SampleAdapter( this, getSampleList() ) );
     }
 
     private static List<SampleActivityWithName> getSampleList() {
         List<SampleActivityWithName> sampleActivityWithNames = new ArrayList<>();
 
-        sampleActivityWithNames.add(new SampleActivityWithName(Sample1Activity.class, R.string.sample1_title));
-        sampleActivityWithNames.add(new SampleActivityWithName(Sample2Activity.class, R.string.sample2_title));
-        sampleActivityWithNames.add(new SampleActivityWithName(Sample3Activity.class, R.string.sample3_title));
-        sampleActivityWithNames.add(new SampleActivityWithName(Sample4Activity.class, R.string.sample4_title));
+        sampleActivityWithNames.add( new SampleActivityWithName( Sample1Activity.class, R.string.sample1_title ) );
+        sampleActivityWithNames.add( new SampleActivityWithName( Sample2Activity.class, R.string.sample2_title ) );
+        sampleActivityWithNames.add( new SampleActivityWithName( Sample3Activity.class, R.string.sample3_title ) );
+        sampleActivityWithNames.add( new SampleActivityWithName( Sample4Activity.class, R.string.sample4_title ) );
 
         return sampleActivityWithNames;
 
@@ -54,16 +58,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null) {
-            actionBar.setTitle(R.string.app_titile);
+        if (actionBar != null) {
+            actionBar.setTitle( R.string.app_titile );
         }
     }
 
     // Create option menu - sign in
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate( R.menu.main_menu, menu );
+        return super.onCreateOptionsMenu( menu );
     }
 
     // Start Login activity on sign in option selected
@@ -71,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_signin:
-                Intent loginIntent = new Intent(this, LoginActivity.class);
-                startActivityForResult(loginIntent, SIGNIN_REQUEST);
+                Intent loginIntent = new Intent( this, LoginActivity.class );
+                startActivityForResult( loginIntent, SIGNIN_REQUEST );
                 return true;
             case R.id.actions_settings:
                 Intent settingsIntent = new Intent( this, PrefsActivity.class );
@@ -80,12 +84,24 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_export:
                 boolean result = JSONHelper.exportToJSON( this, dataItemList );
+                if (result) {
+                    Toast.makeText( this, "Data exported", Toast.LENGTH_SHORT ).show();
+                } else {
+                    Toast.makeText( this, "Export failed", Toast.LENGTH_SHORT ).show();
+                }
                 return true;
             case R.id.action_import:
-//                boolean result = JSONHelper.exportToJSON( this, dataItemList );
+                List<DataItem> dataItems = JSONHelper.importFromJSON( this );
+
+                if(dataItems != null ){
+                    for (DataItem dataItem: dataItems){
+                        Log.i( TAG, "onOptionsItemSelected: " + dataItem.getItemName() );
+
+                    }
+                }
                 return true;
         }
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected( item );
     }
 
     @Override
