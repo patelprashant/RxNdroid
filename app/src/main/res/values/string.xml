@@ -4,6 +4,7 @@
     <string name="sample1_title">Color List - Recyclerview</string>
     <string name="sample2_title">Menu List - Listview</string>
     <string name="sample3_title">Menu List - Recyclerview</string>
+    <string name="sample4_title">Local Storage - Recyclerview</string>
     <string name="menu_detail_title">Menu Item Detail</string>
     <string name="error_message">Oops..! An Error Occured.</string>
     <string name="increment">Increment</string>
@@ -26,4 +27,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="create">Create</string>
+    <string name="read">Read</string>
+    <string name="delete">Delete</string>
+    <string name="ready_to_code">Ready to code!</string>
 </resources>

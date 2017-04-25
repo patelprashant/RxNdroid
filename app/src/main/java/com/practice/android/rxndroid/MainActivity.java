@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         sampleActivityWithNames.add(new SampleActivityWithName(Sample1Activity.class, R.string.sample1_title));
         sampleActivityWithNames.add(new SampleActivityWithName(Sample2Activity.class, R.string.sample2_title));
         sampleActivityWithNames.add(new SampleActivityWithName(Sample3Activity.class, R.string.sample3_title));
+        sampleActivityWithNames.add(new SampleActivityWithName(Sample4Activity.class, R.string.sample4_title));
 
         return sampleActivityWithNames;
 
