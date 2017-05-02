@@ -35,4 +35,23 @@
         android:onClick="removeClickHandler"
         android:text="Remove Fragment"/>
 
+    <Button
+        android:id="@+id/measure_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Measure"
+        android:onClick="onMeasureBtnClick"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/measure_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/measure_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp"
+        android:textSize="20sp"
+        android:text="TextView"/>
+
 </RelativeLayout>

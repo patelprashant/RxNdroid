@@ -24,6 +24,17 @@ public class BlankFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static BlankFragment newInstance(String message) {
+
+        Bundle args = new Bundle();
+
+        args.putString( BlankFragment.MESSAGE_KEY, message );
+
+        BlankFragment fragment = new BlankFragment();
+        fragment.setArguments( args );
+        return fragment;
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach( context );
