@@ -16,7 +16,12 @@ public class Sample5Activity extends AppCompatActivity {
 
     public void addClickHandler(View view) {
         //Add fragment with code
+        Bundle arguments = new Bundle();
+        arguments.putString( BlankFragment.MESSAGE_KEY, "Passed as an argument" );
+
         BlankFragment fragment = new BlankFragment();
+        fragment.setArguments( arguments );
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .addToBackStack( null )
