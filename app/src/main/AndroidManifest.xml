@@ -74,7 +74,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.practice.android.rxndroid.MainActivity"/>
         </activity>
-        <activity android:name=".Sample5Activity">
+        <activity android:name=".Sample5Activity"
+                  android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.practice.android.rxndroid.MainActivity"/>
         </activity>
     </application>
 
