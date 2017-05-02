@@ -11,9 +11,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.practice.android.rxndroid.Sample5Activity">
 
-    <TextView
+    <fragment
+        android:id="@+id/simple_fragment"
+        class="com.practice.android.rxndroid.BlankFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Fragment!!"/>
+        android:layout_centerInParent="true"
+        tools:layout="@layout/fragment_blank"/>
 
 </RelativeLayout>
