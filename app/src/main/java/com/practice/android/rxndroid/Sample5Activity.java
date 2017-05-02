@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class Sample5Activity extends AppCompatActivity {
+    public static final String FRAGMENT_TAG = "blank_fragment";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -17,13 +19,14 @@ public class Sample5Activity extends AppCompatActivity {
         BlankFragment fragment = new BlankFragment();
         getSupportFragmentManager()
                 .beginTransaction()
-                .add( R.id.fragment_container, fragment )
+                .addToBackStack( null )
+                .add( R.id.fragment_container, fragment, FRAGMENT_TAG )
                 .commit();
     }
 
     public void removeClickHandler(View view) {
         BlankFragment fragment = (BlankFragment) getSupportFragmentManager()
-                .findFragmentById( R.id.fragment_container );
+                .findFragmentByTag( FRAGMENT_TAG );
 
         if (fragment != null) {
             getSupportFragmentManager()
