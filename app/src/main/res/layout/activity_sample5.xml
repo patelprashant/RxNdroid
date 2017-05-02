@@ -11,12 +11,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.practice.android.rxndroid.Sample5Activity">
 
-    <fragment
-        android:id="@+id/simple_fragment"
-        class="com.practice.android.rxndroid.BlankFragment"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        tools:layout="@layout/fragment_blank"/>
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

@@ -9,5 +9,13 @@ public class Sample5Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_sample5 );
+
+        //Add fragment with code
+        BlankFragment fragment = new BlankFragment();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add( R.id.fragment_container, fragment )
+                .commit();
     }
 }
