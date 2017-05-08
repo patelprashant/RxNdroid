@@ -1,6 +1,7 @@
 package com.practice.android.rxndroid;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -20,6 +21,21 @@ public class Sample5Activity extends AppCompatActivity {
 
         mOut = (TextView) findViewById( R.id.measure_text );
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById( R.id.floatingActionButton );
+        if (fab == null) throw new AssertionError();
+        fab.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+    }
+
+    private void showDialog(){
+        AlertDialogFragment dialogFragment = new AlertDialogFragment();
+        dialogFragment.setCancelable( false );
+        dialogFragment.show( getFragmentManager(), "ALERT_DIALOG" );
     }
 
     public void addClickHandler(View view) {
