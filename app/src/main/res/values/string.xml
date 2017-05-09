@@ -6,6 +6,7 @@
     <string name="sample3_title">Menu List - Recyclerview</string>
     <string name="sample4_title">Local Storage - Internal/External</string>
     <string name="sample5_title">First Fragment</string>
+    <string name="sample6_title">Custom Dialog Fragment</string>
     <string name="menu_detail_title">Menu Item Detail</string>
     <string name="error_message">Oops..! An Error Occured.</string>
     <string name="increment">Increment</string>
