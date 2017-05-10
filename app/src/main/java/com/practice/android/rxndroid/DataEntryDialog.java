@@ -1,5 +1,6 @@
 package com.practice.android.rxndroid;
 
+import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import com.practice.android.rxndroid.model.Person;
 public class DataEntryDialog extends DialogFragment {
     public static final String PERSON_KEY = "PERSON_KEY";
     EditText etFirstName, etLastName, etAge;
+    private DataEntryListener mListener;
 
     public static DataEntryDialog newInstance(Person person) {
 
@@ -23,6 +25,12 @@ public class DataEntryDialog extends DialogFragment {
         DataEntryDialog fragment = new DataEntryDialog();
         fragment.setArguments( args );
         return fragment;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach( activity );
+        mListener = (DataEntryListener) activity;
     }
 
     @Nullable
@@ -42,7 +50,8 @@ public class DataEntryDialog extends DialogFragment {
         btnOk.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dismiss();
+//                dismiss();
+                saveData();
             }
         } );
 
@@ -55,6 +64,20 @@ public class DataEntryDialog extends DialogFragment {
         } );
 
         return rootView;
+    }
+
+    private void saveData() {
+        Person person = new Person();
+        person.setFirstName( etFirstName.getText().toString() );
+        person.setLastName( etLastName.getText().toString() );
+        person.setAge( Integer.valueOf( etAge.getText().toString() ) );
+
+        mListener.onDataEntryComplete( person );
+        dismiss();
+    }
+
+    public interface DataEntryListener {
+        void onDataEntryComplete(Person person);
     }
 
 }

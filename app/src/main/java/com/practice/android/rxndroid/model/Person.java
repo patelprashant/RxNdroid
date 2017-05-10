@@ -74,4 +74,5 @@ public class Person implements Parcelable {
             return new Person[size];
         }
     };
+
 }

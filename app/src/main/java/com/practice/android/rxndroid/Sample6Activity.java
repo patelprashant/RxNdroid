@@ -5,10 +5,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.practice.android.rxndroid.model.Person;
 
-public class Sample6Activity extends AppCompatActivity {
+public class Sample6Activity extends AppCompatActivity implements DataEntryDialog.DataEntryListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,4 +37,8 @@ public class Sample6Activity extends AppCompatActivity {
         dialog.show( getFragmentManager(), "DIALOG_FRAGMENT" );
     }
 
+    @Override
+    public void onDataEntryComplete(Person person) {
+        Toast.makeText( Sample6Activity.this, "Data entered :" + person.getFirstName() + person.getLastName(), Toast.LENGTH_SHORT ).show();
+    }
 }
