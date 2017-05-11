@@ -71,11 +71,7 @@ public class Sample5Activity extends AppCompatActivity {
         mOut.setText( String.format( "Width: %s, Height: %s", su.getDpWidth(), su.getDpHeight() ) );
 
         // detect width to use fragment
-        if (su.getDpWidth() >= 820) {
-            mUseFragment = true;
-        } else {
-            mUseFragment = false;
-        }
+        mUseFragment = su.getDpWidth() >= 820;
 
         Toast.makeText( this, "Using Fragment-" + mUseFragment, Toast.LENGTH_SHORT ).show();
 

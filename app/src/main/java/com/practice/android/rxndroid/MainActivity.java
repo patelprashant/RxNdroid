@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         sampleActivityWithNames.add( new SampleActivityWithName( Sample4Activity.class, R.string.sample4_title ) );
         sampleActivityWithNames.add( new SampleActivityWithName( Sample5Activity.class, R.string.sample5_title ) );
         sampleActivityWithNames.add( new SampleActivityWithName( Sample6Activity.class, R.string.sample6_title ) );
+        sampleActivityWithNames.add( new SampleActivityWithName( Sample7Activity.class, R.string.sample7_title ) );
 
         return sampleActivityWithNames;
 
